@@ -1,6 +1,6 @@
 # Densovirus_Novel-virus# Create the markdown content for the Densovirus_Novel-virus repository
 
-markdown_densovirus = """# 🦠 Densovirus_Novel-virus
+# 🦠 Densovirus_Novel-virus
 
 This GitHub repository provides a bioinformatics pipeline for virome analysis and genome assembly of a novel densovirus identified in the two-spotted cricket (*Gryllus bimaculatus*).
 
@@ -16,6 +16,7 @@ Virome analysis was conducted using individual Illumina paired-end read files, u
   - Quality score < Q20
   - Length < 50 bp
 - This step also included contaminant and duplicate removal.
+- This step also included contaminant and duplicate removal.
 
 ```bash
 bbduk.sh in1=sample_R1.fastq.gz in2=sample_R2.fastq.gz \
@@ -25,7 +26,8 @@ bbduk.sh in1=sample_R1.fastq.gz in2=sample_R2.fastq.gz \
 minimap2 -ax sr host_genome.fa trimmed_R1.fastq.gz trimmed_R2.fastq.gz | \
   samtools view -b -f 12 -F 256 - > host_filtered.bam
 
-🔹 Step 2: Clustering and Taxonomic Annotation
+
+### 🔹 Step 2: Clustering and Taxonomic Annotation
 Clustered reads were annotated using MMSeqs2 with:
 
 NCBI viral genome database
