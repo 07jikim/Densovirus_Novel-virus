@@ -1,4 +1,3 @@
-# Densovirus_Novel-virus# Create the markdown content for the Densovirus_Novel-virus repository
 
 # 🦠 Densovirus_Novel-virus
 
