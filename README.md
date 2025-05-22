@@ -27,23 +27,18 @@ minimap2 -ax sr host_genome.fa trimmed_R1.fastq.gz trimmed_R2.fastq.gz | \
   samtools view -b -f 12 -F 256 - > host_filtered.bam
 
 
- """### 🔹 Step 2: Clustering and Taxonomic Annotation
+### 🔹 Step 2: Clustering and Taxonomic Annotation
 
-Clustered reads were annotated using **MMSeqs2** with the following databases:
-- NCBI viral genome database  
-- Multi-kingdom nucleotide and protein databases derived from NCBI RefSeq (bacterial, archaeal, viral)
+- Clustered reads were annotated using **MMSeqs2** with the following databases:
+  - NCBI viral genome database  
+  - Multi-kingdom nucleotide and protein databases derived from NCBI RefSeq (bacterial, archaeal, viral)
+- This step allowed the identification of the dominant virus, *Blattodean blattambidensovirus 1*, from the read clusters.
 
-This step allowed the identification of the dominant virus, *Blattodean blattambidensovirus 1*, from the read clusters.
-
----
-
-#### ⚙️ Command
 
 ```bash
 mmseqs createdb clustered_reads.fasta clustered_reads_DB
 mmseqs search clustered_reads_DB viral_refseq_DB result tmp --threads 8
 mmseqs convertalis clustered_reads_DB viral_refseq_DB result result.m8
-
 
 🔹 Step 3: Viral Assembly
 Reads annotated to Blattodean blattambidensovirus 1 (Blattambidensovirus) were assembled using MEGAHIT (v1.2.9).
