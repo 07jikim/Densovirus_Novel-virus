@@ -27,9 +27,7 @@ minimap2 -ax sr host_genome.fa trimmed_R1.fastq.gz trimmed_R2.fastq.gz | \
   samtools view -b -f 12 -F 256 - > host_filtered.bam
 
 
-# Save only Step 2 as a separate markdown content
-
-step2_markdown = """### 🔹 Step 2: Clustering and Taxonomic Annotation
+ """### 🔹 Step 2: Clustering and Taxonomic Annotation
 
 Clustered reads were annotated using **MMSeqs2** with the following databases:
 - NCBI viral genome database  
